@@ -35,7 +35,8 @@ The `data/` folder is excluded by `.gitignore`, except `data/SOURCE.md`. Downloa
 **Delay analysis (2017 data, 21,310 rentals)**
 - 57% of ended rentals with a known checkout are returned late (median lateness 53 min). Connect: 43%, mobile: 61%.
 - 1,841 rentals follow another rental of the same car by less than 12h; 218 of them (12%) are problematic: the previous driver returns the car after the next check-in (median wait 26 min). The next rental is then canceled 17% of the time, against 11% otherwise.
-- Threshold 120 min: all cars, 3.3% of rentals affected and 67% of problematic cases solved; Connect only, 1.4% affected and 49 of the 69 Connect cases solved.
+- **Recommendation: all cars, 120 minutes.** This solves 67% of the problematic cases and exposes 3.3% of revenue. The 3.3% is a maximum, estimated from the share of ended rentals, because a blocked rental is not necessarily lost.
+- For comparison, Connect only exposes 1.4% of revenue at 120 minutes, but solves 49 cases against 147 for all cars, because about two thirds of the problematic cases come from the mobile flow.
 
 **Pricing model**
 - Histogram gradient boosting (scikit-learn), tuned with 5-fold cross-validation.
@@ -48,7 +49,7 @@ The `data/` folder is excluded by `.gitignore`, except `data/SOURCE.md`. Downloa
 
 ```bash
 curl -i -H "Content-Type: application/json" -X POST \
-  -d '{"input": [["Citroën", 140411, 100, "diesel", "black", "convertible", true, true, false, false, true, true, true]]}' \
+  -d '{"input": [["Peugeot", 72000, 110, "petrol", "grey", "estate", false, true, true, false, true, false, false]]}' \
   https://mpsw-getaround-api.hf.space/predict
 ```
 

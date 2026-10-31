@@ -103,9 +103,9 @@ with st.expander("Simulation table"):
 
 st.header("4. Takeaways for the Product team")
 st.markdown("""
-- The marginal benefit drops fast: 0 to 120 min solves about 2/3 of the problematic cases; 120 to 240 min solves only ~14% more while blocking ~50% more rentals.
-- **Connect only** costs about 1% of rentals at 60-120 min and targets the flow where no owner is present to manage a late return, but it covers 69 of the 218 problematic cases.
-- Two candidate settings: **Connect only, 60-120 min** (cautious launch) or **all cars, 120 min** (~3.3% of rentals affected, ~67% of problematic cases solved).
+- **Recommendation: all cars, 120 minutes.** This solves 67% of the problematic cases and exposes 3.3% of revenue. The 3.3% is a maximum, because a blocked rental is not necessarily lost.
+- The marginal benefit drops beyond 120 minutes: 120 to 240 min solves only ~14 percentage points more while blocking ~50% more rentals.
+- **Connect only, for comparison:** about two thirds of the problematic cases come from the mobile flow (149 of 218). At 120 min, Connect only exposes 1.4% of revenue but solves 49 cases, against 147 for all cars.
 """)
 
 st.header("5. Methodology")
